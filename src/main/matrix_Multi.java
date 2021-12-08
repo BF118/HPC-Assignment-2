@@ -8,9 +8,10 @@ public class matrix_Multi {
 	public static void main(String[]args) {
 		
 		Date start = new Date();
+		int matrixsize = 3;
 		
-		int[][] m1 = Matrix_generator.generateMatrix(3,3);
-		int[][] m2 = Matrix_generator.generateMatrix(3,3);
+		int[][] m1 = Matrix_generator.generateMatrix(matrixsize,matrixsize);
+		int[][] m2 = Matrix_generator.generateMatrix(matrixsize,matrixsize);
 		
 		int[][] result = multiply(m1,m2);
 		

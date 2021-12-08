@@ -18,7 +18,7 @@ public class Matrix_generator {
 		for( int i = 0; i < rows; i++) {
 			for (int j =0; j <columns; j++){
 								
-				results[i][j]= random.nextInt(100)* 10;
+				results[i][j]= random.nextInt(1000);
 								
 			}
 		}
@@ -39,7 +39,7 @@ public class Matrix_generator {
 				System.out.print(matrix[i][j] + "  ");
 				
 			}
-			
+			System.out.println();
 		}
 		
 		
