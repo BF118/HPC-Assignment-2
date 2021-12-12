@@ -1,4 +1,4 @@
-package main;
+package Task1;
 
 import java.util.Random;
 
@@ -17,7 +17,7 @@ public class Matrix_generator {
 		
 		for( int i = 0; i < rows; i++) {
 			for (int j =0; j <columns; j++){
-								
+		//creates a random number between 1 and 1000 and places into the array which is then repeated using a for loop		
 				results[i][j]= random.nextInt(1000);
 								
 			}

@@ -1,4 +1,4 @@
-package main;
+package Task1;
 
 
 import	java.util.Date;
