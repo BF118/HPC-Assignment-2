@@ -1,28 +1,44 @@
 package Task2;
 
-
-public class master {
-	private int slaveCount = 10;
-    private Slave[] slaves = new Slave[slaveCount];
-    public void run() {
-   	  // create slaves:
-      for(int i = 0; i < slaveCount; i++) {
-         slaves[i] = new Slave();
-      }
-      // start slaves:
-      for(int i = 0; i < slaveCount; i++) {
-         slaves[i].start();
-      }
-      // wait for slaves to die:
-      for(int i = 0; i < slaveCount; i++) {
-         try {
-            slaves[i].join();
-         } catch(InterruptedException ie) {
-               System.err.println(ie.getMessage());
-         } finally {
-            System.out.println(slaves[i].getName() + " has died");
-         }
-      }
-      System.out.println("The master will now die ... ");
-   }
+public class master extends Thread {
+	
+    public int[][] run(int matrix1[][],int matrix2[][],int resultmatrix[][]) {
+    	int slaveCount = 100;
+        Slave slaves[] = new Slave[slaveCount];
+	// create slaves:
+    	for(int i = 0; i < slaveCount; i++) {
+    		slaves[i] = new Slave();
+    		//System.out.println("create slave: " + i);
+    	}
+    
+    	int currentslave = 0;
+   
+    	for (int i = 0; i < matrix1.length; i++) {
+			   for (int j = 0; j < matrix1.length; j++) {
+			    for (int k = 0; k < matrix1.length; k++) {
+			    
+			    	slaves[currentslave].run(matrix1[i][k],matrix2[k][j], resultmatrix, i ,j);
+			    	currentslave++;
+			    	if(currentslave == slaveCount) {
+			    		currentslave = 0;
+			    	}
+    	
+			    			
+			    }
+			   }
+			   
+    	}
+    
+    return resultmatrix;
+    
+    }
 }
+	
+	
+	
+	
+	
+
+
+      
+   
