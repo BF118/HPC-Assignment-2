@@ -1,13 +1,13 @@
 package Task2;
 
-public class master extends Thread {
+public class masterThread extends Thread {
 	
     public int[][] run(int matrix1[][],int matrix2[][],int resultmatrix[][]) {
     	int slaveCount = 100;
-        Slave slaves[] = new Slave[slaveCount];
+        SlaveThread slaves[] = new SlaveThread[slaveCount];
 	// create slaves:
     	for(int i = 0; i < slaveCount; i++) {
-    		slaves[i] = new Slave();
+    		slaves[i] = new SlaveThread();
     		//System.out.println("create slave: " + i);
     	}
     
@@ -33,12 +33,3 @@ public class master extends Thread {
     
     }
 }
-	
-	
-	
-	
-	
-
-
-      
-   

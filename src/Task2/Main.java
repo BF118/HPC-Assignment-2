@@ -3,7 +3,7 @@ package Task2;
 import java.util.Date;
 
 
-public class Matrixtask2 {
+public class Main {
 	public class matrix_Multi {
 		public static void main(String[]args) {
 			
@@ -14,7 +14,7 @@ public class Matrixtask2 {
 			int[][] matrix2 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
 			int[][] resultmatrix = new int[matrixsize][matrixsize];
 			
-			master master = new master();
+			masterThread master = new masterThread();
 			
 			
 			master.run(matrix1, matrix2, resultmatrix);
