@@ -1,4 +1,4 @@
-package Task2;
+package Task2b;
 
 
 class SlaveThread extends Thread {
