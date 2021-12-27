@@ -4,34 +4,36 @@ import java.util.Date;
 
 public class Main extends Thread {
 	public class matrix_Multi extends Thread{
+		
 		public static void main(String[]args) {
 	
 			Date start = new Date();
-			int matrixsize = 1000;
+			int matrixsize = 3;
 			
 			int[][] matrix1 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
 			int[][] matrix2 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
 			int[][] resultmatrix = new int[matrixsize][matrixsize];
 			
-			workerThread pool = new workerThread();
+			mainthread main = new mainthread();
 			
-			pool.start(matrix1, matrix2, resultmatrix);
+			main.start(matrix1, matrix2, resultmatrix);
 			
 			Date end = new Date();
 
 			
-			//System.out.println("matrix 1: ");
-			//Matrix_gen.print(matrix1);
+			System.out.println("matrix 1: ");
+			Matrix_gen.print(matrix1);
 			
-			//System.out.println("\nmatrix 2: ");
-			//Matrix_gen.print(matrix2);
+			System.out.println("\nmatrix 2: ");
+			Matrix_gen.print(matrix2);
 			
-			//System.out.println("\nOutput Matrix: ");
-			//System.out.println(resultmatrix);
+			System.out.println("\nOutput Matrix: ");
+			System.out.println(resultmatrix);
 			
 			System.out.println("\nTime taken in milli seconds: " + (end.getTime() - start.getTime()));
+			
 		}
-		public class work extends Thread {
+		public static class mainthread extends Thread {
 			
 		    public int[][] start(int matrix1[][],int matrix2[][],int resultmatrix[][]) {
 		    	//setting the amount of slaves we want to create then saves that to an array
@@ -41,7 +43,7 @@ public class Main extends Thread {
 		        // create slaves:
 		    	for(int i = 0; i < Threadpool; i++) {
 		    		worker[i] = new workerThread();
-		    		System.out.println("create slave: " + i);
+		    		System.out.println("create thread: " + i);
 		    	}
 		    
 		    	int currentworker = 0;

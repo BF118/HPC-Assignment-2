@@ -19,7 +19,7 @@ public class masterThread extends Thread {
 			   for (int j = 0; j < matrix1.length; j++) {
 			    for (int k = 0; k < matrix1.length; k++) {
 			    
-			    	slaves[currentslave].start(matrix1[i][k],matrix2[k][j], resultmatrix, i ,j);
+			    	slaves[currentslave].run(matrix1[i][k],matrix2[k][j], resultmatrix, i ,j);
 			    	currentslave++;
 			    	if(currentslave == slaveCount) {
 			    		currentslave = 0;
