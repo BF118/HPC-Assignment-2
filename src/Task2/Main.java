@@ -7,13 +7,13 @@ public class Main {
 	public class matrix_Multi {
 		public static void main(String[]args) {
 			
-			Date start = new Date();
-			int matrixsize = 1000;
+			
+			int matrixsize = 1500;
 			
 			int[][] matrix1 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
 			int[][] matrix2 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
 			int[][] resultmatrix = new int[matrixsize][matrixsize];
-			
+			Date start = new Date();
 			masterThread master = new masterThread();
 			
 			
