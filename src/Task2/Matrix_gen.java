@@ -1,3 +1,4 @@
+//MasterSlave
 package Task2;
 
 

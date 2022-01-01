@@ -1,3 +1,4 @@
+//MasterSlave
 package Task2;
 
 import java.util.Date;
