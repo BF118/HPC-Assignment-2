@@ -9,7 +9,7 @@ public class Main extends Thread {
 		public static void main(String[]args) {
 	
 			
-			int matrixsize = 1000;
+			int matrixsize = 5000;
 			
 			int[][] matrix1 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
 			int[][] matrix2 = Matrix_gen.generateMatrix(matrixsize,matrixsize);

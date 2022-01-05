@@ -7,24 +7,25 @@ import	java.util.Date;
 public class matrix_Multi {
 	public static void main(String[]args) {
 		
-		Date start = new Date();
-		int matrixsize = 2500;
+		
+		int matrixsize = 10000;
 		//uses the matrix generator class and generate matrix method to create the matrixes we need for the given size
 		int[][] m1 = Matrix_generator.generateMatrix(matrixsize,matrixsize);
 		int[][] m2 = Matrix_generator.generateMatrix(matrixsize,matrixsize);
 		
+		Date start = new Date();
 		int[][] result = multiply(m1,m2);
 		
 		Date end = new Date();
 		
-		System.out.println("matrix 1: ");
-		Matrix_generator.print(m1);
+		//System.out.println("matrix 1: ");
+		//Matrix_generator.print(m1);
 		
-		System.out.println("\n matrix 2: ");
-		Matrix_generator.print(m2);
+		//System.out.println("\n matrix 2: ");
+		//Matrix_generator.print(m2);
 		
-		System.out.println("\nOutput Matrix: ");
-		Matrix_generator.print(result);
+		//System.out.println("\nOutput Matrix: ");
+		//Matrix_generator.print(result);
 		
 		System.out.println("\nTime taken in milli seconds: " + (end.getTime() - start.getTime()));
 	}
