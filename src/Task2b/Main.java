@@ -1,14 +1,13 @@
+//MasterSlave
 package Task2b;
-
-import java.util.Date;
 
 
 public class Main {
 	public class matrix_Multi {
 		public static void main(String[]args) {
 			
-			Date start = new Date();
-			int matrixsize = 1000;
+			
+			int matrixsize = 2500;
 			
 			int[][] matrix1 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
 			int[][] matrix2 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
@@ -19,7 +18,7 @@ public class Main {
 			
 			master.start(matrix1, matrix2, resultmatrix);
 			
-			Date end = new Date();
+			
 
 			
 			//System.out.println("matrix 1: ");
@@ -31,7 +30,6 @@ public class Main {
 			//System.out.println("\nOutput Matrix: ");
 			//System.out.println(resultmatrix);
 			
-			System.out.println("\nTime taken in milli seconds: " + (end.getTime() - start.getTime()));
 		}
 		
 

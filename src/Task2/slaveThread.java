@@ -1,16 +1,30 @@
 //MasterSlave
+
 package Task2;
 
 
 class SlaveThread extends Thread {
-	public int start(int matrix1, int matrix2, int resultmatrix[][], int i, int j) {
+	
+	int matrix1value;
+	int matrix2value;
+	int [][]resultmatrix;
+	int i;
+	int j;
+	
+	
+	public SlaveThread(int matrix1value, int matrix2value, int resultmatrix[][], int i, int j) {
+		this.matrix1value = matrix1value;
+		this.matrix2value = matrix2value;
+		this.resultmatrix = resultmatrix;
+		this.i = i;
+		this.j = j;
+	}
 		
-		return resultmatrix[i][j] = resultmatrix[i][j] +(matrix1 * matrix2);
-		
-		}
+	public void run() {
 	
 	
+			resultmatrix[i][j] = resultmatrix[i][j] +(matrix1value * matrix2value);
 	
-	
+	}
 	
 }

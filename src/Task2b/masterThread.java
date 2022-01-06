@@ -1,5 +1,7 @@
 package Task2b;
 
+import java.util.Date;
+
 public class masterThread extends Thread {
 	
     public int[][] start(int matrix1[][],int matrix2[][],int resultmatrix[][]) {
@@ -12,7 +14,7 @@ public class masterThread extends Thread {
     		slaves[i] = new SlaveThread();
     		System.out.println("create slave: " + i);
     	}
-    
+    	Date start = new Date();
     	int currentslave = 0;
     	//similar nest for loop from the gold standard
     	for (int i = 0; i < matrix1.length; i++) {
@@ -29,10 +31,14 @@ public class masterThread extends Thread {
 			    			
 			    }
 			   }
+			
 			   
     	}
-    
+    	Date end = new Date();
+    	System.out.println("\nTime taken in milli seconds: " + (end.getTime() - start.getTime()));
     return resultmatrix;
     
+   
     }
+    
 }
