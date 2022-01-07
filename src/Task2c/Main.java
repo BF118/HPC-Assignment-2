@@ -3,6 +3,7 @@ package Task2c;
 
 import java.util.Date;
 
+
 public class Main extends Thread {
 	public class matrix_Multi extends Thread{
 		
@@ -14,14 +15,13 @@ public class Main extends Thread {
 			int[][] matrix1 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
 			int[][] matrix2 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
 			int[][] resultmatrix = new int[matrixsize][matrixsize];
-			Date start = new Date();
-			mainthread main = new mainthread();
 			
-			main.start(matrix1, matrix2, resultmatrix);
+			mainThread main = new mainThread(matrix1, matrix2, resultmatrix);
+			
+			main.run();
 			
 			
-			Date end = new Date();
-	    	System.out.println("\nTime taken in milli seconds: " + (end.getTime() - start.getTime()));
+			
 			
 			//System.out.println("matrix 1: ");
 			//Matrix_gen.print(matrix1);
@@ -35,42 +35,55 @@ public class Main extends Thread {
 			
 			
 		}
-		public static class mainthread extends Thread {
+
+public static class mainThread extends Thread {
+		
+		int[][] matrix1;
+		int[][] matrix2;
+		int[][] resultmatrix;
+		
+		public mainThread(int matrix1[][],int matrix2[][],int resultmatrix[][]) {
 			
-		    public int[][] start(int matrix1[][],int matrix2[][],int resultmatrix[][]) {
-		    	//setting the amount of slaves we want to create then saves that to an array
-		    	
-		    	int Threadpool = 100;
-		        workerThread worker[] = new workerThread[Threadpool];
-			    
-		        // create slaves:
-		    	for(int i = 0; i < Threadpool; i++) {
-		    		worker[i] = new workerThread();
-		    		//System.out.println("create thread: " + i);
+			this.matrix1 = matrix1;
+			this.matrix2 = matrix2;
+			this.resultmatrix = resultmatrix;
+			
+		}
+
+		
+
+		public void run() {
+			
+			Date start = new Date();
+			int currentThreads = 0;
+			int threadCount = 100;
+			 workerThread Threads[] = new workerThread[threadCount];
+			 // create slaves:
+		    	for(int i = 0; i < threadCount; i++) {
+		    		Threads[i] = new workerThread(i, i, matrix1, i, i);
+		    		System.out.println("create Thread: " + i);
 		    	}
 		    	
-		    	int currentworker = 0;
-		    	//similar nest for loop from the gold standard
-		    	for (int i = 0; i < matrix1.length; i++) {
-					   for (int j = 0; j < matrix1.length; j++) {
-					    for (int k = 0; k < matrix1.length; k++) {
-					    
-					    	worker[currentworker].start(matrix1[i][k],matrix2[k][j], resultmatrix, i ,j);
-					    	currentworker++;
-					    	if(currentworker == Threadpool) {
-					    		currentworker = 0;
-					    		
-					    	}
-		    	
-					    			
-					    }
-					   }
-					   
+		    	Threads[currentThreads].start();
+		    	currentThreads++;
+		    	if(currentThreads == threadCount) {
+		    		currentThreads = 0;
 		    	}
-		    	
-		    return resultmatrix;
-		    
-		    }
+			 
+			 
+			 for (int i = 0; i < matrix1.length; i++) {
+				   for (int j = 0; j < matrix1.length; j++) {
+				    for (int k = 0; k < matrix1.length; k++) {
+				    	Threads[currentThreads]= new workerThread(matrix1[i][k],matrix2[k][j], resultmatrix, i ,j);
+
+			
+				    	}			
+	    
+				   }
+			 }
+			 Date end = new Date();
+		    	System.out.println("\nTime taken in milli seconds: " + (end.getTime() - start.getTime()));
 		}
 	}
+}
 }

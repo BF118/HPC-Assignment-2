@@ -7,7 +7,7 @@ public class Main {
 		public static void main(String[]args) {
 			
 			
-			int matrixsize = 1000;
+			int matrixsize = 250;
 			
 			int[][] matrix1 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
 			int[][] matrix2 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
