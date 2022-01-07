@@ -9,7 +9,7 @@ public class Main extends Thread {
 		public static void main(String[]args) {
 	
 			
-			int matrixsize = 5000;
+			int matrixsize = 250;
 			
 			int[][] matrix1 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
 			int[][] matrix2 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
@@ -19,8 +19,9 @@ public class Main extends Thread {
 			
 			main.start(matrix1, matrix2, resultmatrix);
 			
+			
 			Date end = new Date();
-
+	    	System.out.println("\nTime taken in milli seconds: " + (end.getTime() - start.getTime()));
 			
 			//System.out.println("matrix 1: ");
 			//Matrix_gen.print(matrix1);
@@ -31,22 +32,23 @@ public class Main extends Thread {
 			//System.out.println("\nOutput Matrix: ");
 			//System.out.println(resultmatrix);
 			
-			System.out.println("\nTime taken in milli seconds: " + (end.getTime() - start.getTime()));
+			
 			
 		}
 		public static class mainthread extends Thread {
 			
 		    public int[][] start(int matrix1[][],int matrix2[][],int resultmatrix[][]) {
 		    	//setting the amount of slaves we want to create then saves that to an array
+		    	
 		    	int Threadpool = 100;
 		        workerThread worker[] = new workerThread[Threadpool];
 			    
 		        // create slaves:
 		    	for(int i = 0; i < Threadpool; i++) {
 		    		worker[i] = new workerThread();
-		    		System.out.println("create thread: " + i);
+		    		//System.out.println("create thread: " + i);
 		    	}
-		    
+		    	
 		    	int currentworker = 0;
 		    	//similar nest for loop from the gold standard
 		    	for (int i = 0; i < matrix1.length; i++) {
@@ -65,7 +67,7 @@ public class Main extends Thread {
 					   }
 					   
 		    	}
-		    
+		    	
 		    return resultmatrix;
 		    
 		    }

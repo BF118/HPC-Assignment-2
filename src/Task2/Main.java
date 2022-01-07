@@ -7,7 +7,7 @@ public class Main {
 		public static void main(String[]args) {
 			
 			
-			int matrixsize = 2500;
+			int matrixsize = 1000;
 			
 			int[][] matrix1 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
 			int[][] matrix2 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
@@ -16,7 +16,7 @@ public class Main {
 			masterThread master = new masterThread(matrix1, matrix2, resultmatrix);
 			
 			
-			master.start();
+			master.run();
 			
 			
 

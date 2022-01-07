@@ -14,13 +14,12 @@ public class Main {
 			int[][] matrix1 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
 			int[][] matrix2 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
 			int[][] resultmatrix = new int[matrixsize][matrixsize];
-			Date start = new Date();
+			
 			masterThread master = new masterThread();
 			
 			
 			master.start(matrix1, matrix2, resultmatrix);
 			
-			Date end = new Date();
 
 			
 			//System.out.println("matrix 1: ");
@@ -32,7 +31,7 @@ public class Main {
 			//System.out.println("\nOutput Matrix: ");
 			//System.out.println(resultmatrix);
 			
-			System.out.println("\nTime taken in milli seconds: " + (end.getTime() - start.getTime()));
+			
 		}
 		
 
