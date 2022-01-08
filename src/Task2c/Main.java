@@ -10,7 +10,7 @@ public class Main extends Thread {
 		public static void main(String[]args) {
 	
 			
-			int matrixsize = 250;
+			int matrixsize = 50;
 			
 			int[][] matrix1 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
 			int[][] matrix2 = Matrix_gen.generateMatrix(matrixsize,matrixsize);
@@ -63,13 +63,13 @@ public static class mainThread extends Thread {
 		    		Threads[i] = new workerThread(i, i, matrix1, i, i);
 		    		System.out.println("create Thread: " + i);
 		    	}
-		    	
+		    	for(int i = 0; i < threadCount; i++) {
 		    	Threads[currentThreads].start();
 		    	currentThreads++;
 		    	if(currentThreads == threadCount) {
 		    		currentThreads = 0;
 		    	}
-			 
+		    	}
 			 
 			 for (int i = 0; i < matrix1.length; i++) {
 				   for (int j = 0; j < matrix1.length; j++) {
