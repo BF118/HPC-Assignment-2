@@ -31,15 +31,16 @@ public class masterThread extends Thread {
 		 // create slaves:
 	    	for(int i = 0; i < slaveCount; i++) {
 	    		slaves[i] = new SlaveThread(i, i, matrix1, i, i);
-	    		//System.out.println("create slave: " + i);
+	    		System.out.println("create slave: " + i);
 	    	}
 	    	for(int i = 0; i < slaveCount; i++) {
 	    	slaves[currentslave].start();
-	    	//System.out.println("start slave: " + currentslave);
+	    	System.out.println("start slave: " + currentslave);
 	    	currentslave++;
 	    	if(currentslave == slaveCount) {
 	    		currentslave = 0;
 	    	}
+	    	
 	    	}
 		 
 		 for (int i = 0; i < matrix1.length; i++) {
@@ -52,8 +53,6 @@ public class masterThread extends Thread {
     
 			   }
 		 }
-		 int count = Thread.activeCount();
-		 System.out.println(count);
 		 Date end = new Date();
 	    	System.out.println("\nTime taken in milli seconds: " + (end.getTime() - start.getTime()));
 	}

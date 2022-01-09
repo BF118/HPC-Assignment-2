@@ -18,14 +18,14 @@ public class matrix_Multi {
 		
 		Date end = new Date();
 		
-		//System.out.println("matrix 1: ");
-		//Matrix_generator.print(m1);
+		System.out.println("matrix 1: ");
+		Matrix_generator.print(m1);
 		
-		//System.out.println("\n matrix 2: ");
-		//Matrix_generator.print(m2);
+		System.out.println("\n matrix 2: ");
+		Matrix_generator.print(m2);
 		
-		//System.out.println("\nOutput Matrix: ");
-		//Matrix_generator.print(result);
+		System.out.println("\nOutput Matrix: ");
+		Matrix_generator.print(result);
 		
 		System.out.println("\nTime taken in milli seconds: " + (end.getTime() - start.getTime()));
 	}

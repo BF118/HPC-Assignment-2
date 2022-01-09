@@ -21,14 +21,14 @@ public class Main {
 			
 
 			
-			//System.out.println("matrix 1: ");
-			//Matrix_gen.print(matrix1);
+			System.out.println("matrix 1: ");
+			Matrix_gen.print(matrix1);
 			
-			//System.out.println("\nmatrix 2: ");
-			//Matrix_gen.print(matrix2);
+			System.out.println("\nmatrix 2: ");
+			Matrix_gen.print(matrix2);
 			
-			//System.out.println("\nOutput Matrix: ");
-			//System.out.println(resultmatrix);
+			System.out.println("\nOutput Matrix: ");
+			System.out.println(resultmatrix);
 			
 		}
 		
